@@ -10,6 +10,7 @@ const Head = () => {
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
   const dispatch = useDispatch();
+  console.log("searchQuery", searchQuery);
   const searchCache = useSelector((store) => store.search);
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -34,7 +35,7 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestion = async () => {
-    console.log(searchQuery);
+    console.log("search,query", searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     let jsonData;
     try {
